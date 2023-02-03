@@ -1,0 +1,23 @@
+﻿@model IEnumerable<Demo.UploadReadImagens.Data.Models.Gato>;
+
+@{
+
+}
+
+<h3>Lista de Gatitos:</h3>
+
+@{
+    foreach (var gato in Model)
+    {
+        <div>
+            <h5>@gato.Name</h5>
+            <p>Idade: @gato.Idade</p>
+            @if(gato.ImageId != null)
+            {
+                <figure>
+                    <img height="200" src="@Url.Action("RenderImage", "Gatos", new { id = gato.ImageId } )" />
+                </figure>
+            }
+        </div>
+    }
+}

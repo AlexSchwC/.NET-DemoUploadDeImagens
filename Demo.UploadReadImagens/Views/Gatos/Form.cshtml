@@ -1,0 +1,24 @@
+﻿@model Demo.UploadReadImagens.Data.Models.Gato;
+
+@{
+
+}
+
+<form asp-controller="Gatos" asp-action="UploadImage" enctype="multipart/form-data" method="post">
+    <label>Nome: </label>
+    <input asp-for="Name" type="text"/>
+    <label >Idade: </label>
+    <input asp-for="Idade" type="number"/>
+    <label>Carregue uma foto: </label>
+    <input type="file" name="arquivo"/>
+    <br />
+    <button class="btn btn-dark mt-3">Submit</button>
+</form>
+
+<div id="lista-gatos"></div>
+
+@section Scripts {
+    <script>
+        $('#lista-gatos').load("/Gatos/GatosList")
+    </script>
+}
